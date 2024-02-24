@@ -25,6 +25,7 @@ var/
 *.egg
 .venv
 .venv/
+classes_teachers_periods.py
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
