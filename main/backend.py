@@ -4,11 +4,12 @@ class Teacher():
         self.room_number = room_number
         self.periods = periods #periods teaching
 class Class():
-    def __init__(self,name,number,maxcapacity):
+    def __init__(self,name,number,maxcapacity,is_required):
         self.name = name
         self.number = number
         self.max_capacity = maxcapacity
         self.students = []
+        self.is_required = is_required
 class DesiredSchedule():
     def __init__(self,wants,secondary):
         self.wants = wants

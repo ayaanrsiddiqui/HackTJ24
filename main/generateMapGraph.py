@@ -16,7 +16,7 @@ def temporaryMeasure():
             temp.append(0)
         out.append(temp)
     for i in range(n):
-        for j in range(i,n):
+        for j in range(i+1,n):
             out[i][j] = random.randint(0,100)
             out[j][i] = out[i][j]
     return out
