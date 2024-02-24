@@ -27,10 +27,10 @@ class DesiredSchedule():
         return out
 
 
-def cost(currentSchedule,desiredSchedule,dist):
+def cost(currentSchedule,desiredSchedule,distMatrix):
     cost = 0
     for i in currentSchedule:
         cost += desiredSchedule.dist(currentSchedule)
     for i in range(len(currentSchedule)-1):
-        cost += dist[currentSchedule[i]][currentSchedule[i+1]]
+        cost += distMatrix[currentSchedule[i]][currentSchedule[i+1]]
     return cost
