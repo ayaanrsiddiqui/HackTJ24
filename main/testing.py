@@ -24,7 +24,7 @@ qubo = {}
 for i in range(0,len(temp),2):
     line = temp[i]+','+temp[i+1]
     key,value = line.split(':')
-    qubo[eval(key)] = int(value)
+    qubo[eval(key)] = float(value)
 print('quboExtracted')
 sampler = SimulatedAnnealingSampler()
 sample = sampler.sample_qubo(qubo)
@@ -38,3 +38,10 @@ total = 0
 classes = [0]*14*5
 for i in range(len(thingie)):
     classes[i%(14*5)] += thingie[i]
+
+
+n = 0
+accClasses = getClasses()
+for i in range(70):
+    if thingie[n*70+i]  == 1:
+        print(accClasses[i])

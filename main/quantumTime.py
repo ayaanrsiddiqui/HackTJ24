@@ -1,5 +1,5 @@
 def getDists():
-    with open('main/distanceMatrix.txt') as infile:
+    with open('main/distanceMatrixUpdated.txt') as infile:
         return eval(infile.read())
 
 def getClasses():
@@ -14,13 +14,19 @@ def getClasses():
             room = int(line[-1].split()[-1])
             out.append([className,period,room])
     return out
-
+def getPrefs():
+    with open('main/test_student_entries.txt') as infile:
+        data = eval(infile.read())
+        first = [i[0] for i in data]
+        second = [i[1] for i in data]
+    return first,second
 
 classes = getClasses()
 print(len(classes))
 classesTotal = len(classes)
 actualClasses = {i[0] for i in classes}
 courseRequests = [['physics','lit'],[]*10]
+first,second = getPrefs()
 
 mutuallyExclusive = []
 for i in range(len(classes)):
@@ -36,7 +42,7 @@ individualTotals = 7
 qubo = {}
 T = individualTotals
 M = 500000
-R = 20 #Reward for matched class
+R = 2000 #Reward for matched class
 #Normalization, essentially each student can only be in 7 classes
 for n in range(numStudents):
     for i in range(classesTotal):
@@ -44,8 +50,10 @@ for n in range(numStudents):
             qubo[(n*classesTotal+i,n*classesTotal+j)] = M**2
     for i in range(classesTotal):
         qubo[(n*classesTotal+i,n*classesTotal+i)] -= 2*T*M**2
-        if classes[i][0] in courseRequests:
+        if classes[i][0] in first[n]:
             qubo[(n*classesTotal+i,n*classesTotal+i)] -= R
+        if classes[i][0] in second[n]:
+            qubo[(n*classesTotal+i,n*classesTotal+i)] -= R/4
 print('normalized')
 
 #Only so many in a class
@@ -67,7 +75,7 @@ for n in range(numStudents):
             if abs(classes[i][1]-classes[j][1]) == 1:
                 qubo[(n*classesTotal+i,n*classesTotal+j)] += distMat[classes[i][2]][classes[j][2]]
     for i in mutuallyExclusive:
-        qubo[(n*classesTotal+i[0],n*classesTotal+i[1])] += M
+        qubo[(n*classesTotal+i[0],n*classesTotal+i[1])] += M**3
     for i in qubo:
         if qubo[i] < 0 and i[0] != i[1]:
             print(i,qubo[i])
