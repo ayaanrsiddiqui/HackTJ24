@@ -10,7 +10,7 @@ def getClasses():
             period = int(line[2].split()[-1])
             name = line[1]
             room = int(line[-1].split()[-1])
-            out.append([className,period,room])
+            out.append([className,period,room,name])
     return out
 def simulate(qubo,thing):
     out = 0
