@@ -18,7 +18,7 @@ def simulate(qubo,thing):
         for j in range(len(thing)):
             out += qubo[(i,j)]*thing[i]*thing[j]
     return out
-raw = open('qubo.txt').read()[1:-2]
+raw = open('main/qubo.txt').read()[1:-2]
 temp = raw.split(',')
 qubo = {}
 for i in range(0,len(temp),2):
@@ -40,8 +40,14 @@ for i in range(len(thingie)):
     classes[i%(14*5)] += thingie[i]
 
 
-n = 0
+schedules  = []
 accClasses = getClasses()
-for i in range(70):
-    if thingie[n*70+i]  == 1:
-        print(accClasses[i])
+for n in range(100):
+    temp = []
+    for i in range(70):
+        if thingie[n*70+i]  == 1:
+            temp.append(accClasses[i])
+    schedules.append(temp)
+
+with open('main/schedules.txt','w') as outfile:
+    print(schedules,file=outfile)

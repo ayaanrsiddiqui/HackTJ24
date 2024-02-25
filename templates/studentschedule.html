@@ -12,11 +12,14 @@
             <tr>
                 {% for i in range(s|length) %}
                 <td>
-                    <h2>Period {{i+1}}</h2><br>
+                    <div>
+                        <h2>Period {{i+1}}</h2><br>
+                    </div>
+                    <div class="this">
                     Subject: {{c[s[i]["subject"]]}}<br>
                     Teacher: {{s[i]["teacher"]}}<br>
                     Room: {{s[i]["room"]}}<br>
-    
+                    </div>
                 </td>
                 {% endfor%}    
             </tr>

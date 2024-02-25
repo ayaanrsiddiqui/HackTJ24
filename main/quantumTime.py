@@ -1,14 +1,17 @@
 def getDists():
     with open('main/distanceMatrixUpdated.txt') as infile:
         return eval(infile.read())
-
+def getActualClasses():
+    with open('main/classes.txt') as infile:
+        return infile.read().split('\n')
 def getClasses():
+    cs = getActualClasses()
     with open('main/classes_teachers_periods.txt') as infile:
         raw = eval(infile.read())
         out = []
         for i in raw:
             line = i.split(',')
-            className = line[0]
+            className = cs.index(line[0])
             period = int(line[2].split()[-1])
             name = line[1]
             room = int(line[-1].split()[-1])
