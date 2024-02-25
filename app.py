@@ -101,7 +101,8 @@ def index():
 @login_required
 def home():
     created = Created.query.first().created
-    created = True
+    if current_user.username == "s2":
+        created = True
     if not created:
         if current_user.acctype == 0:
             ch = Choice.query.filter_by(username=current_user.username).first().preferences.split(";")
