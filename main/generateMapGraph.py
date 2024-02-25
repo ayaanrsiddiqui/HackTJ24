@@ -8,7 +8,7 @@ def save(matrix,filename):
         outfile.write(str(matrix))
 
 def temporaryMeasure():
-    n = len(readFile('main/classes.txt').split())
+    n = len(readFile('main/teacherNames.txt').split())
     out = []
     for i in range(n):
         temp = []
