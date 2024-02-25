@@ -1,0 +1,22 @@
+table
+{
+    table-layout: fixed;
+    width: 100%;
+    border: solid;
+    border-collapse: collapse;
+}
+td 
+{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: solid;
+    padding: 0%;
+}
+h2
+{
+    text-align: center;
+}
+h1
+{
+    text-align: center;
+    ;
+}
