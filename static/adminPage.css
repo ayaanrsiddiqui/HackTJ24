@@ -1,0 +1,18 @@
+body {
+    background-color: #faf3e0; /* Solid background color of beige */
+    text-align: center; /* Align all text content to the center */
+}
+
+.student-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.student-container > * {
+    width: 10%; /* Each student takes up 10% of the container width */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+button {
+    margin: 10px;
+}

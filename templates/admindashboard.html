@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename="adminPage.css")}}>
     <title>Admin Dashboard</title>
 </head>
 <body>
     <h1>Admin Dashboard for {{current_user.username}}</h1>
 
     <h2>Students:</h2>
+    <div class="student-container">
         {% for student in s %}
-        {{student["username"]}}<br>
+            {{ student["username"] }}
         {% endfor %}
+    </div>
     <h2>Teachers:</h2>
         {% for teacher in t %}
         {{teacher["username"]}}<br>

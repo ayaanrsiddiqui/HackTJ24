@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/schedule.css">
+    <title>Teacher Schedule </title>
+</head>
+<body>
+    <h1>Teacher Schedule for {{current_user.username}}</h1>
+        {% for pd in t%}
+            {% if t[pd] %}
+            Room: {{t[pd][0][1]}}
+            Students:
+            {% for s in t[pd]%}
+            {{s}}<br>
+            {%endfor%]}
+            {% endif %}
+        {% endfor %}
+        <a href={{url_for("logout")}}><button>Log Out</button></a>
+
+</body>
+</html>
