@@ -161,5 +161,21 @@ def submit():
     db.session.commit()
     return redirect(url_for("home"))
 
+@app.route('/generate', methods=['POST'])
+def generate():
+    allchoices = db.session.query(User, Choice).join(User, User.username==Choice.username).filter_by(admin=current_user.username).order_by(User.username).all()
+    biglist = []
+    for pref in allchoices:
+        s = pref[1].preferences
+        if not s:
+            s = "([],[])"
+        else:
+            s = "(" + s.replace(";", ",") + ")"
+        biglist.append(eval(s))
+    entriesfile = open("main/test_student_entries.txt", "w")
+    entriesfile.write(str(biglist))
+    entriesfile.close()
+    return redirect(url_for("home"))
+
 if __name__ == '__main__':
     app.run(debug=True)

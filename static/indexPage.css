@@ -1,0 +1,43 @@
+body 
+{
+    background-color: #faf3e0; /* Solid background color of beige */
+    text-align: center; /* Align all text content to the center */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Add spacing between the first and second choice dropdowns */
+select 
+{
+    padding: 10px;
+    margin-bottom: 10px; /* Add margin at the bottom to create space between each select element */
+}
+
+ul 
+{
+    list-style-type: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.input-container 
+{
+    padding: 10px; /* Add padding to all sides of the div */
+}
+
+nav ul li 
+{
+    padding: 10px; /* Add padding around the login and create account links */
+}
+
+/* Add spacing between the submit button and log out button */
+form button
+{
+    margin-top: 10px; /* Add margin at the top to create space between the submit and log out buttons */
+}
+
+a[href="#logout"] button 
+{
+    margin-top: 10px; /* Add margin at the top to create space between the submit and log out buttons */
+}

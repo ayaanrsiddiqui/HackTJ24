@@ -1,0 +1,21 @@
+body {
+    background-color: #faf3e0; /* Solid background color of beige */
+    text-align: center; /* Align all text content to the center */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.input-container {
+    padding: 10px; /* Add padding to all sides of the div */
+}
+
+nav ul li {
+    padding: 10px; /* Add padding around the login and create account links */
+}
