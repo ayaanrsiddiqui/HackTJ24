@@ -10,11 +10,12 @@
     <h1>Teacher Schedule for {{current_user.username}}</h1>
         {% for pd in t%}
             {% if t[pd] %}
-            Room: {{t[pd][0][1]}}
-            Students:
+            Period: {{pd}} <br>
+            Room: {{t[pd][0][1]}} <br>
+            Students:<br>
             {% for s in t[pd]%}
-            {{s}}<br>
-            {%endfor%]}
+            {{s[0]}}<br>
+            {%endfor%}
             {% endif %}
         {% endfor %}
         <a href={{url_for("logout")}}><button>Log Out</button></a>

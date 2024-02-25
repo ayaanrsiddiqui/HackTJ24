@@ -135,7 +135,7 @@ def home():
             schedule = Block.query.filter_by(teacher=current_user.username).order_by(Block.period).all()
             teacherperiods = {1:[],2:[], 3:[], 4:[], 5:[], 6:[], 7:[]}
             for item in schedule:
-                teacherperiods[item[4]].append((item[1], item[5]))
+                teacherperiods[item.period].append((item.student, item.room))
             return render_template('teacherschedule.html', c = classnames, t =teacherperiods )
         else:
             users = User.query.filter_by(admin=current_user.username).all()
