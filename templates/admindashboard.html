@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard for {{current_user.username}}</h1>
+
+    <h2>Students:</h2>
+        {% for student in s %}
+        {{student["username"]}}<br>
+        {% endfor %}
+    <h2>Teachers:</h2>
+        {% for teacher in t %}
+        {{teacher["username"]}}<br>
+        {% endfor %}
+
+    <form action="/generate" method="post">
+
+        <button action="submit">Generate Schedules</button>
+        
+    </form>
+    <a href={{url_for("logout")}}><button>Log Out</button></a>
+</body>
+</html>

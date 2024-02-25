@@ -116,7 +116,16 @@ def home():
         elif current_user.acctype == 1:
             return render_template('teacherpage.html')
         else:
-            return render_template('admindashboard.html')
+            users = User.query.filter_by(admin=current_user.username).all()
+            stds = []
+            tchs = []
+            for u in users:
+                if u.acctype == 0:
+                    stds.append(u)
+                elif u.acctype == 1:
+                    tchs.append(u)
+
+            return render_template('admindashboard.html', s = stds, t = tchs)
     else:
         if current_user.acctype == 0:
             schedule = Block.query.filter_by(student=current_user.username).order_by(Block.period).all()
