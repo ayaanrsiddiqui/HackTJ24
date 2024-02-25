@@ -6,7 +6,7 @@
     <title>Class Request Form</title>
 </head>
 <body>
-    <h1>Class Request Form</h1>
+    <h1>Class Request Form for {{current_user.username}}</h1>
 
     <form action="/submit" method="post">
 
@@ -19,7 +19,11 @@
         <select name={{firstname}} id={{firstname}} required>
             <option value="">Select Class</option>
             {% for j in range(c|length)%}
-            <option value={{j}}>{{c[j]}}</option>
+                {% if j == f[i-1]%}
+                <option value={{j}} selected>{{c[j]}}</option>
+                {% else %}
+                <option value={{j}}>{{c[j]}}</option>
+                {% endif %}
             {% endfor %}
         </select><br>
 
@@ -28,7 +32,11 @@
         <select name={{secondname}} id={{secondname}} required>
             <option value="">Select Class</option>
             {% for j in range(c|length)%}
-            <option value={{j}}>{{c[j]}}</option>
+                {% if j == s[i-1]%}
+                <option value={{j}} selected>{{c[j]}}</option>
+                {% else %}
+                <option value={{j}}>{{c[j]}}</option>
+                {% endif %}
             {% endfor %}
         </select><br>
         {% endfor%}

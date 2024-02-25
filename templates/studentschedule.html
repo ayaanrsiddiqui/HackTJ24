@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Schedule</title>
+</head>
+<body>
+    <h1>Student Schedule for {{current_user.username}}</h1>
+
+
+
+        {% for i in range(s|length) %}
+        <h2>Period {{i+1}}</h2><br>
+        Subject: {{c[s[i]["subject"]]}}<br>
+        Teacher: {{s[i]["teacher"]}}<br>
+        Room: {{s[i]["room"]}}<br>
+        {% endfor%}
+        
+        
+
+
+</body>
+</html>
