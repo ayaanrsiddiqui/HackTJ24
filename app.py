@@ -3,7 +3,7 @@ from markupsafe import escape
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 
-
+from main import testing,quantumTime
 app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
@@ -175,6 +175,9 @@ def generate():
     entriesfile = open("main/test_student_entries.txt", "w")
     entriesfile.write(str(biglist))
     entriesfile.close()
+    quantumTime.main()
+    testing.main()
+
     return redirect(url_for("home"))
 
 if __name__ == '__main__':
