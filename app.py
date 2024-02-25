@@ -175,7 +175,8 @@ def generate():
     entriesfile = open("main/test_student_entries.txt", "w")
     entriesfile.write(str(biglist))
     entriesfile.close()
-    quantumTime.main()
+
+    quantumTime.main()  
     testing.main()
 
     return redirect(url_for("home"))

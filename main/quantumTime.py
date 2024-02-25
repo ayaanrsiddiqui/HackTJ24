@@ -78,7 +78,7 @@ def main():
                 if abs(classes[i][1]-classes[j][1]) == 1:
                     qubo[(n*classesTotal+i,n*classesTotal+j)] += distMat[classes[i][2]][classes[j][2]]
         for i in mutuallyExclusive:
-            qubo[(n*classesTotal+i[0],n*classesTotal+i[1])] += M**3
+            qubo[(n*classesTotal+i[0],n*classesTotal+i[1])] += M**4
         for i in qubo:
             if qubo[i] < 0 and i[0] != i[1]:
                 print(i,qubo[i])
